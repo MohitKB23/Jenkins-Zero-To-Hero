@@ -41,7 +41,7 @@ pipeline {
             sh 'docker tag ${DOCKER_IMAGE} mohitbhardwajb/ultimate-cicd:latest'
             def dockerImage = docker.image("${DOCKER_IMAGE}")
             docker.withRegistry('https://index.docker.io:latest', "docker-cred") {
-                dockerImage.push("latest")
+                dockerImage.push()
             }
         }
       }
