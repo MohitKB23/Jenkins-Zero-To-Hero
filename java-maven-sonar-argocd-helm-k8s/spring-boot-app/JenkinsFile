@@ -38,7 +38,7 @@ pipeline {
       steps {
         script {
             sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && docker build -t ${DOCKER_IMAGE} .'
-            sh 'docker tag mohitbhardwajb/ultimate-cicd/latest'
+            sh 'docker tag 21eef10a77c5 mohitbhardwajb/ultimate-cicd:latest'
             def dockerImage = docker.image("${DOCKER_IMAGE}")
             docker.withRegistry('https://index.docker.io/latest/', "docker-cred") {
                 app.tag(["tag1","latest"])
